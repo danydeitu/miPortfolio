@@ -1,16 +1,10 @@
 
-const express = require ('express');
+const express = require('express');
 const router = express.Router();
 
-//Enrutador 
-const router = express.Router();
+const {home, about} = require('../controller/mainControllers');
 
-//Requerir mainConroller
-const mainController = require('../controllers/mainController');
+router.get('/',home);
+router.get('/about',about);
 
-//Ruta Home
-router.get('/', mainController.home);
-
-
-//ruta app.js
-module.exports = router;
+module.exports = routers;

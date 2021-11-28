@@ -1,6 +1,6 @@
-const controlador = {
-    index: (req, res) => {
-    res.send('../home.html');
-    },
+
+   const controllers= {
+    home : (req,res) => res.render('home'),
+    about : (req,res) => res.render('about'),
    }
-   module.exports = controlador;
+   module.exports = controllers;

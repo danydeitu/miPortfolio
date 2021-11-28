@@ -1,19 +1,16 @@
-
 const express = require('express');
 const app = express();
+const path = require('path');
+const mainRouter = require('../routers/main');
+
 
 app.use(express.static('public'));
-app.use(express.static('views'));
 
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
 
-const port = 3000;
-app.listen(port, () => console.log('Server running in port ' + port))
+app.use('/', mainRouter);
 
-
-const mainRoute  = require('./routes/mainRoute');
-const aboutRoute = require('./routes/aboutRoute')
-
-
-
-app.use(mainRoute);
-app.use(aboutRoute);
+app.listen(3000, () => {
+    console.log(`Servidor corriendo en http://localhost:${3000}`);
+})
